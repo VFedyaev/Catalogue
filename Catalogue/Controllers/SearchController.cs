@@ -213,7 +213,6 @@ namespace Catalogue.Controllers
         {
             IQueryable<Employee> query = db.Employees
                 .Where(n => n.EmployeeFullName.Contains(part_1));
-
             return query;
         }
 

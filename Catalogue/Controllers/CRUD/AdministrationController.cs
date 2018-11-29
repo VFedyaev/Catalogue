@@ -7,6 +7,7 @@ using Catalogue.Models.Tables;
 using System.Net;
 using System.Data.Entity;
 using PagedList;
+using System.Web.UI;
 
 namespace Catalogue.Controllers.CRUD
 {
@@ -16,6 +17,7 @@ namespace Catalogue.Controllers.CRUD
 
         // Ajax pagination PartialView Administration 
         [Authorize(Roles = "admin")]
+        [OutputCache(Duration = 30, Location = OutputCacheLocation.Downstream)]
         public ActionResult AjaxPositionList(int? page)
         {
             int pageSize = 10;
@@ -25,6 +27,7 @@ namespace Catalogue.Controllers.CRUD
 
         // GET: Administration
         [Authorize(Roles = "admin")]
+        [OutputCache(Duration = 30, Location = OutputCacheLocation.Downstream)]
         public ActionResult Index(int? page)
         {
             int pageSize = 10;
@@ -47,7 +50,7 @@ namespace Catalogue.Controllers.CRUD
         [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
-            SelectList divisionList = new SelectList(db.Divisions, "DivisionId", "DivisionName");
+            SelectList divisionList = new SelectList(db.Divisions.OrderBy(d => d.DivisionName), "DivisionId", "DivisionName");
             ViewBag.AdministrationList = divisionList;
             return View();
         }
@@ -79,7 +82,7 @@ namespace Catalogue.Controllers.CRUD
             if (administration == null)
                 return HttpNotFound();
 
-            SelectList divisionList = new SelectList(db.Divisions, "DivisionId", "DivisionName");
+            SelectList divisionList = new SelectList(db.Divisions.OrderBy(d => d.DivisionName), "DivisionId", "DivisionName");
             ViewBag.AdministrationList = divisionList;
             return View(administration);
         }

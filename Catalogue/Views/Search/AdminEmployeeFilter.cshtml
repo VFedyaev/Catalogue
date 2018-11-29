@@ -8,11 +8,9 @@
                 {
                     <h4 style="text-align:center;"><u>Нет результатов</u></h4><br />
                     <table id="list-table"></table>
-
                 }
                 else
                 {
-
                     <table class="table table-striped" id="list-table">
                         <tbody>
                             <tr>
@@ -49,9 +47,7 @@
                                 var myModal = "myModal" + item.EmployeeId;
                                 <tr>
                                     <td>
-                                        <span data-link="@Url.Content($"~/images/{item.EmployeePhoto}")" class="lightbox">
-                                            <img src="~/images/@item.EmployeePhoto" class="tumb" />
-                                        </span>
+                                        <img src="~/images/@item.EmployeePhoto" width="80" height="100" />
                                     </td>
                                     <td class="td-title">
                                         @item.Department.DepartmentName
@@ -110,7 +106,7 @@
                         Model,
                         page => Url.Action("EmployeeFilter", new { page }))
 
-                        Старница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+                        Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
                     </div>
                 }
                 <button class="btn btn-default" onclick="toPrevMain('admin')">Вернуться к списку</button>

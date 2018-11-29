@@ -1,0 +1,48 @@
+﻿@model Catalogue.Models.Tables.Department
+
+@{
+    ViewBag.Title = "Просмотр отдела";
+    Layout = "~/Views/Shared/_AminPanel.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Просмотр отдела</h2>
+                </div>
+                <div class="content">
+                    <div>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <!-- Field AdministrationName -->
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Administration.AdministrationName)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Administration.AdministrationName)
+                            </dd>
+                            <!-- Field DepartmentName -->
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DepartmentName)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.DepartmentName)
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- Buttons Edit and Back -->
+                    <p>
+                        <a class="btn btn-default" name="editButton" id="editButton" href="@Url.Action("Edit","Department", new {id = Model.DepartmentId})">Редактировать</a> |
+                        <a class="btn btn-default" name="backButton" id="backButton" href="@Url.Action("Index","Department")">Назад</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
