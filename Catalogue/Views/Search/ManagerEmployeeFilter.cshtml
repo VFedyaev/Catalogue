@@ -1,4 +1,5 @@
 @model PagedList.IPagedList<Catalogue.Models.Tables.Employee>
+
 @using PagedList.Mvc;
 <div class="row">
     <div class="col-md-12">
@@ -8,6 +9,7 @@
                 {
                     <p>Нет результатов</p>
                     <table id="list-table"></table>
+
                 }
                 else
                 {
@@ -21,6 +23,7 @@
                                 <th class="col-md-2">Телефон</th>
                                 <th style="text-align: center;">Действие</th>
                             </tr>
+
                             @foreach (Catalogue.Models.Tables.Employee item in Model)
                             {
                                 <tr>

@@ -67,14 +67,14 @@
                             <p>Сотрудники</p>
                         </a>
                     </li>
-
-                    <li class="active">
-                        <a href="@Url.Action("Register", "Account")">
-                            <i class="pe-7s-add-user"></i>
-                            <p>Добавить пользователя</p>
-                        </a>
-                    </li>
-
+                    
+                        <li class="active">
+                            <a href="@Url.Action("Register", "Account")">
+                             <i class="pe-7s-add-user"></i>
+                                 <p>Добавить пользователя</p>
+                            </a>
+                        </li> 
+                    
                 </ul>
             </div>
         </div>
@@ -105,10 +105,10 @@
                 <div class="container-fluid">
 
                     @if (DateTime.Now.Year == 2018)
-                    {
-                        <p class="copyright pull-right">&copy; @DateTime.Now.Year Отдел программирования ГВЦ</p> }
-                    else
-                    {
+                {
+                    <p class="copyright pull-right">&copy; @DateTime.Now.Year Отдел программирования ГВЦ</p> }
+            else
+            {
                         <p class="copyright pull-right">&copy; 2018 - @DateTime.Now.Year Отдел программирования ГВЦ</p>}
 
                 </div>
@@ -119,11 +119,12 @@
 
     </div>
     <!--   Core JS Files   -->
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+        @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-
+    
 
     <script src="@Url.Content("~/Content/assets/js/bootstrap.min.js")" type="text/javascript"></script>
 
@@ -137,5 +138,5 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/app.js")
     @RenderSection("scripts", required: false)
-</body>
+    </body>
 </html>

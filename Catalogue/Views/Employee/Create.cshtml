@@ -80,11 +80,10 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.PositionId, "Должность", htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.DropDownListFor(model => model.PositionId, ViewBag.PositionList as SelectList, "Выберите должность...", new { @class = "form-control", @id = "testselectset", @required = "required" })
+                                    @Html.DropDownListFor(model => model.PositionId, ViewBag.PositionList as SelectList, "Выберите должность...", new { @class = "list", @id = "testselectset", @required = "required" })
                                     @Html.ValidationMessageFor(model => model.PositionId, "", new { @class = "text-danger validation-span" })
                                 </div>
                             </div>
-
                             <!-- Field ComboBox DepartmentId with Validation -->
                             <div class="form-group">
                                 @Html.LabelFor(model => model.DepartmentId, "Отдел", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -162,8 +161,11 @@
     <script type="text/javascript" charset="utf-8">
         checkPhotoPreview();
     </script>
-    @*<script>
-        $("#departmentDropdown").chosen();
-        $("#testselectset").chosen();
-    </script>*@
+    <script>
+        $(function () {
+            $("#departmentDropdown").chosen();
+            $("#positionDropdown").chosen();
+        })
+    </script>
+
 }
